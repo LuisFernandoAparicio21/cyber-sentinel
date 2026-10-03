@@ -1,0 +1,183 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "SAP SOC Project",
+  "elements": [
+    {
+      "id": "title", "type": "text", "x": 150, "y": 10, "width": 700, "height": 40,
+      "text": "MANUEL - Project Management & Estructura del Proyecto",
+      "fontSize": 26, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 1, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_team", "type": "rectangle", "x": 30, "y": 70, "width": 960, "height": 70,
+      "strokeColor": "#1971c2", "backgroundColor": "#d0ebff", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 2, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_team_label", "type": "text", "x": 40, "y": 80, "width": 940, "height": 50,
+      "text": "EQUIPO:   Fernando (Cloud/CF)   |   Carlos & Iker (ML/Data Science)   |   Rene & Luis (Data Architecture / SQL)   |   Gerardo (Dashboard / Next.js)   |   Manuel (PM)\nUniversidad: UPAEP  |  Plataforma: SAP BTP Cloud Foundry  |  HANA Cloud (prod-us10)  |  Estado: PRODUCTION READY",
+      "fontSize": 12, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 3, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_phases", "type": "text", "x": 30, "y": 162, "width": 200, "height": 20,
+      "text": "FASES DEL PROYECTO",
+      "fontSize": 13, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 4, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_f1", "type": "rectangle", "x": 30, "y": 185, "width": 175, "height": 80,
+      "strokeColor": "#1971c2", "backgroundColor": "#d0ebff", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 5, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_f1_label", "type": "text", "x": 40, "y": 193, "width": 155, "height": 64,
+      "text": "FASE 1\nIngestion\n\nFernando\nFlask + CF + HANA\nStatus: DONE",
+      "fontSize": 11, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 6, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_f2", "type": "rectangle", "x": 225, "y": 185, "width": 175, "height": 80,
+      "strokeColor": "#9c36b5", "backgroundColor": "#eebefa", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 7, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_f2_label", "type": "text", "x": 235, "y": 193, "width": 155, "height": 64,
+      "text": "FASE 2\nSQL Views\n\nRene & Luis\nV_ATTACKS_ML\nV_ALERTS_24H\nStatus: DONE",
+      "fontSize": 11, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 8, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_f3", "type": "rectangle", "x": 420, "y": 185, "width": 175, "height": 80,
+      "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 9, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_f3_label", "type": "text", "x": 430, "y": 193, "width": 155, "height": 64,
+      "text": "FASE 3\nML Training\n\nCarlos & Iker\nRandomForest 97.58%\nBLOB en HANA\nStatus: DONE",
+      "fontSize": 11, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 10, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_f4", "type": "rectangle", "x": 615, "y": 185, "width": 175, "height": 80,
+      "strokeColor": "#868e96", "backgroundColor": "#f1f3f5", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 11, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_f4_label", "type": "text", "x": 625, "y": 193, "width": 155, "height": 64,
+      "text": "FASE 4\nDashboard\n\nGerardo\nNext.js + hdb\nLocal dev\nStatus: EN PROGRESO",
+      "fontSize": 11, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 12, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_f5", "type": "rectangle", "x": 810, "y": 185, "width": 175, "height": 80,
+      "strokeColor": "#868e96", "backgroundColor": "#f1f3f5", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 13, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_f5_label", "type": "text", "x": 820, "y": 193, "width": 155, "height": 64,
+      "text": "FASE 5\nInferencia RT\n\nTodo el equipo\n/predict endpoint\nScoring HANA\nStatus: PENDIENTE",
+      "fontSize": 11, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 14, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "arrow_f1_f2", "type": "arrow", "x": 205, "y": 225, "width": 20, "height": 0,
+      "points": [[0, 0], [20, 0]],
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 15, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "arrow_f2_f3", "type": "arrow", "x": 400, "y": 225, "width": 20, "height": 0,
+      "points": [[0, 0], [20, 0]],
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 16, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "arrow_f3_f4", "type": "arrow", "x": 595, "y": 225, "width": 20, "height": 0,
+      "points": [[0, 0], [20, 0]],
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 17, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "arrow_f4_f5", "type": "arrow", "x": 790, "y": 225, "width": 20, "height": 0,
+      "points": [[0, 0], [20, 0]],
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 18, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_docs", "type": "text", "x": 30, "y": 290, "width": 200, "height": 20,
+      "text": "DOCUMENTOS (Manuel)",
+      "fontSize": 13, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#868e96", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 19, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_docs", "type": "rectangle", "x": 30, "y": 313, "width": 460, "height": 80,
+      "strokeColor": "#868e96", "backgroundColor": "#f8f9fa", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 20, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_docs_label", "type": "text", "x": 40, "y": 321, "width": 440, "height": 64,
+      "text": "05_Project_Management_Manuel/\n  ESTRUCTURA_PROYECTO.md    — Estructura del proyecto y roles\n  PLAN_TRATAMIENTO.md       — Plan de tratamiento de datos\n  REPORTE_METRICAS.md       — Reporte de metricas del sprint\n  DocumentosEstudioSAP/     — Material openSAP HANA Week 2-4",
+      "fontSize": 11, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 21, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_status", "type": "rectangle", "x": 510, "y": 313, "width": 480, "height": 80,
+      "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb", "fillStyle": "solid",
+      "strokeWidth": 3, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 22, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_status_label", "type": "text", "x": 520, "y": 321, "width": 460, "height": 64,
+      "text": "STATUS FINAL DEL SPRINT\n\nModelo: RandomForest  Accuracy: 97.58%  F1(ataque): 0.90\nDatos: 500K registros  Entrenamiento: 14s  Modelo: 2.2 MB en HANA\nCF Tasks ejecutados: 17  (8 fallidos iterativamente depurados, 9 exitosos)",
+      "fontSize": 12, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 23, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    }
+  ],
+  "appState": { "gridSize": null, "viewBackgroundColor": "#ffffff" },
+  "files": {}
+}

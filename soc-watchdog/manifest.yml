@@ -1,0 +1,10 @@
+applications:
+- name: soc-watchdog
+  memory: 128M
+  disk_quota: 256M
+  no-route: true
+  command: python watchdog.py
+  env:
+    CF_API: https://api.cf.us10-001.hana.ondemand.com
+    CF_USER: ((CF_USER))
+    CF_PASSWORD: ((CF_PASSWORD))

@@ -1,0 +1,16 @@
+---
+applications:
+- name: soc-api-ingestor
+  memory: 1024M
+  disk_quota: 2048M
+  buildpack: python_buildpack
+  command: python 01_ingest_api.py
+  health-check-type: http
+  health-check-http-endpoint: /health
+  env:
+    SOC_API_TOKEN: ((SOC_API_TOKEN))
+    HANA_HOST: <your-hana-host>.hanacloud.ondemand.com
+    HANA_PORT: "443"
+    HANA_USER: DBADMIN
+    HANA_PASSWORD: ((HANA_PASSWORD))
+    WEBHOOK_SECRET: ((WEBHOOK_SECRET))

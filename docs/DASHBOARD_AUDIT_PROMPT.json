@@ -1,0 +1,81 @@
+{
+  "task": "Dashboard Audit: HANA Tables → Dashboard Components",
+  "context": {
+    "project": "SAP SOC (Security Operations Center) — Real-time attack detection & forensic reporting",
+    "hana_instance": "<your-hana-host>.hanacloud.ondemand.com:443",
+    "hana_schema": "SOC_LOGS",
+    "dashboard_path": "c:\\Users\\HP\\Documents\\SAP proyecto\\04_Security_Visualisation_Gerardo\\soc-dashboard\\",
+    "dashboard_tech": "Next.js + TypeScript, deployed on SAP BTP Cloud Foundry"
+  },
+  "objectives": [
+    "Inventory todas las tablas en HANA schema SOC_LOGS",
+    "Analizar estructura, relaciones y contenido de cada tabla",
+    "Revisar código dashboard actual (src/lib/hana.ts, src/app, src/components)",
+    "Identificar gaps: qué datos existen en HANA pero no se visualizan",
+    "Identificar bugs: qué componentes están rotos o incompletos",
+    "Generar reporte ejecutivo con recomendaciones de fixes"
+  ],
+  "scope": {
+    "hana_exploration": [
+      "Listar todas las tablas/vistas en SOC_LOGS",
+      "Para cada tabla: columns, row count, sample data",
+      "Identificar primary keys, relaciones, índices",
+      "Campos de timestamp, severidad, IPs, puertos, etc."
+    ],
+    "dashboard_analysis": [
+      "Revisar /src/lib/hana.ts — todas las funciones fetch*",
+      "Revisar /src/components — card components, tables, charts",
+      "Revisar /src/app — pages, layouts, health checks",
+      "Verificar cuáles tablas HANA se usan vs cuáles se ignoran"
+    ],
+    "gap_analysis": [
+      "¿Hay datos en HANA que deberían aparecer pero no?",
+      "¿Hay componentes dashboard que no tienen backend?",
+      "¿Falta la tabla de ALERTS mencionada por usuario?",
+      "¿Qué visualizaciones ayudarían a SOC team?"
+    ],
+    "bug_audit": [
+      "¿Hay queries que fallan?",
+      "¿Hay componentes que crashean?",
+      "¿Hay datos incompletos o null?",
+      "¿Timeouts en queries?",
+      "¿Health checks correctos?"
+    ]
+  },
+  "deliverables": {
+    "report_format": "Markdown",
+    "sections": [
+      "1. HANA Schema Inventory (tabla por tabla)",
+      "2. Dashboard Current State (qué se visualiza ahora)",
+      "3. Gaps Identified (datos en HANA sin visualizar)",
+      "4. Bugs Found (issues actuales)",
+      "5. Recommendations (qué agregar/fijar)",
+      "6. Priority Queue (orden de implementación)"
+    ],
+    "specific_focus": [
+      "ALERTS table: estructura, si existe, si se visualiza",
+      "MODEL_SCORES: ¿está completo en dashboard?",
+      "INCIDENTS: ¿se ve en dashboard?",
+      "SECURITY_DATA_FINAL: ¿raw data se muestra?",
+      "Health checks: ¿INGESTOR_HEALTH_URL está configurada?"
+    ]
+  },
+  "resources_provided": {
+    "hana_credentials": {
+      "note": "Usuario proporcionará o están en .env",
+      "example_env_vars": ["HANA_HOST", "HANA_PORT", "HANA_USER", "HANA_PASSWORD"]
+    },
+    "dashboard_files": {
+      "hana_client": "04_Security_Visualisation_Gerardo/soc-dashboard/src/lib/hana.ts",
+      "components_dir": "04_Security_Visualisation_Gerardo/soc-dashboard/src/components",
+      "pages_dir": "04_Security_Visualisation_Gerardo/soc-dashboard/src/app"
+    },
+    "prior_investigation": {
+      "dual_ml_plan": "docs/DUAL_ML_PLAN.md",
+      "sac_investigation": "docs/SAC_SMART_PREDICT_INVESTIGATION.md"
+    }
+  },
+  "output_file": "docs/DASHBOARD_AUDIT_REPORT.md",
+  "tone": "Technical, honest, direct",
+  "user_feedback": "Usuario dice: 'dashboard es funcional pero le faltan cosas, especialmente tabla de alerts y varios fixes'"
+}

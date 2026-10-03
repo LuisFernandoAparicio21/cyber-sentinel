@@ -1,0 +1,29 @@
+name: SAP BTP Keep-Alive
+
+on:
+  # schedule disabled in the public copy
+  # schedule:
+  #   - cron: '0 * * * *'
+  workflow_dispatch:        # ejecución manual desde GitHub UI
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping soc-dashboard
+        run: |
+          curl -sf --max-time 15 \
+            https://soc-dashboard.cfapps.us10-001.hana.ondemand.com/api/health \
+            && echo "soc-dashboard OK" || echo "soc-dashboard WARN (no response)"
+
+      - name: Ping soc-api
+        run: |
+          curl -sf --max-time 15 \
+            https://soc-api.cfapps.us10-001.hana.ondemand.com/health \
+            && echo "soc-api OK" || echo "soc-api WARN (no response)"
+
+      - name: Ping soc-api-ingestor
+        run: |
+          curl -sf --max-time 15 \
+            https://soc-api-ingestor.cfapps.us10-001.hana.ondemand.com/health \
+            && echo "soc-api-ingestor OK" || echo "soc-api-ingestor WARN (no response)"

@@ -1,0 +1,6 @@
+{
+  "host": "<your-hana-host>.hanacloud.ondemand.com",
+  "port": 443,
+  "user": "<hana-user>",
+  "password": "<set-in-env>"
+}

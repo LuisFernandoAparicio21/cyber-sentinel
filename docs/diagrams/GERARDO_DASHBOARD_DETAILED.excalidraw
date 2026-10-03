@@ -1,0 +1,187 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "SAP SOC Project",
+  "elements": [
+    {
+      "id": "title", "type": "text", "x": 100, "y": 10, "width": 800, "height": 35,
+      "text": "GERARDO - Next.js Dashboard (5 Secciones + Data Flow)",
+      "fontSize": 24, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 1, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_hero", "type": "text", "x": 30, "y": 60, "width": 940, "height": 20,
+      "text": "SECCION 1: HERO METRICS (KPIs Globales) - Full Width Top",
+      "fontSize": 13, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#1971c2", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 2, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_hero", "type": "rectangle", "x": 30, "y": 83, "width": 940, "height": 55,
+      "strokeColor": "#1971c2", "backgroundColor": "#d0ebff", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 3, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_hero_label", "type": "text", "x": 40, "y": 89, "width": 920, "height": 43,
+      "text": "┌─ Total Eventos 24h: 15,234  │  Alertas Críticas: 8 🔴  │  Nivel Amenaza: CRITICAL (92%) 🔴  │  Tiempo Respuesta: 2.3s  ┐\nSELECT COUNT(*) FROM V_ALERTS_24H  |  WHERE ALERT_SEVERITY='CRITICAL'  |  MAX(MODEL_CONFIDENCE)  |  AVG latency",
+      "fontSize": 10, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 4, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_3cols", "type": "text", "x": 30, "y": 155, "width": 940, "height": 20,
+      "text": "SECCION 2-4: 3 Columnas en Paralelo (30% / 35% / 35%)",
+      "fontSize": 13, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 5, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_ai", "type": "text", "x": 30, "y": 180, "width": 200, "height": 18,
+      "text": "SECCION 2: AI ENGINE (30%)",
+      "fontSize": 12, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#2f9e44", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 6, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_ai", "type": "rectangle", "x": 30, "y": 200, "width": 270, "height": 200,
+      "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 7, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_ai_label", "type": "text", "x": 40, "y": 208, "width": 250, "height": 184,
+      "text": "SAP DAR Ops\n\n1. Confidence Gauge\n   Avg MODEL_CONFIDENCE: 94%\n   [Visual: 0-100% gauge]\n\n2. Attack Distribution (Pie)\n   DDoS: 45% | SQLi: 30% | Brute: 25%\n   SELECT ATTACK_CATEGORY, COUNT(*)\n   FROM V_ALERTS_24H\n   WHERE IS_ATTACK=1\n   GROUP BY ATTACK_CATEGORY\n\n3. Top Threat IPs (Bar)\n   192.168.1.100 (120)\n   10.0.0.50 (85)\n\n4. Last Training\n   2026-04-12 06:23:20 UTC\n   FROM ML_ARTIFACTS metadata",
+      "fontSize": 10, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 8, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_net", "type": "text", "x": 330, "y": 180, "width": 240, "height": 18,
+      "text": "SECCION 3: NETWORK TOPOLOGY (35%)",
+      "fontSize": 12, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#f08c00", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 9, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_net", "type": "rectangle", "x": 330, "y": 200, "width": 320, "height": 200,
+      "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 10, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_net_label", "type": "text", "x": 340, "y": 208, "width": 300, "height": 184,
+      "text": "Network Intelligence\n\n1. Mapa de Calor Tráfico\n   [Heatmap SRC_IP → DST_IP]\n   SELECT SRC_IP, DST_IP, COUNT(*)\n   FROM V_ALERTS_24H\n   GROUP BY SRC_IP, DST_IP\n\n2. Ports in Danger (Top 10)\n   80 (4.5K)  443 (3.2K)  8080 (1.8K)\n   SELECT DST_PORT, COUNT(*)\n   WHERE IS_ATTACK=1\n   GROUP BY DST_PORT\n\n3. Duration vs Flow Scatter\n   [Detección de anomalías]\n   SELECT DURATION, FLOW_BYTES_PER_S\n   WHERE IS_ATTACK=1\n   (tráfico lento con muchos datos = sospechoso)",
+      "fontSize": 10, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 11, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_health", "type": "text", "x": 680, "y": 180, "width": 290, "height": 18,
+      "text": "SECCION 4: INFRASTRUCTURE HEALTH (35%)",
+      "fontSize": 12, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#e03131", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 12, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_health", "type": "rectangle", "x": 680, "y": 200, "width": 290, "height": 200,
+      "strokeColor": "#e03131", "backgroundColor": "#ffc9c9", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 13, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_health_label", "type": "text", "x": 690, "y": 208, "width": 270, "height": 184,
+      "text": "System Status\n\n1. HANA Cloud\n   🟢 Healthy\n   Latency: 45ms\n   Memory: 67% used\n   GET /api/health → hdbcli\n\n2. Ingestor Pulse\n   🟢 Alive\n   Last heartbeat: 2min ago\n   Status: soc-api-ingestor running\n\n3. API Connectivity\n   🟢 Connected\n   Response time: <100ms\n   Status: /api/alerts OK\n\n4. Model Artifacts\n   🟢 OK (3 artefactos)\n   baseml_model, scaler, metadata\n   FROM ML_ARTIFACTS table",
+      "fontSize": 10, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 14, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_feed", "type": "text", "x": 30, "y": 415, "width": 940, "height": 20,
+      "text": "SECCION 5: LIVE ALERT FEED (Full Width, Scrollable Timeline)",
+      "fontSize": 13, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#9c36b5", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 15, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_feed", "type": "rectangle", "x": 30, "y": 437, "width": 940, "height": 140,
+      "strokeColor": "#9c36b5", "backgroundColor": "#eebefa", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 16, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_feed_label", "type": "text", "x": 40, "y": 445, "width": 920, "height": 124,
+      "text": "Time         │ Severity │ Type       │ Source IP → Dest IP     │ Conf │ Actions\n═════════════╪══════════╪════════════╪═════════════════════════╪══════╪════════════════════\n14:35:22 UTC │ 🔴 CRIT  │ DDoS       │ 192.168.1.100 → 10.0.0.1│ 94%  │ [Ignore] [Mitigate] [Investigate]\n14:34:15 UTC │ 🟠 HIGH  │ SQLi       │ 10.20.0.5 → 10.0.0.1    │ 78%  │ [Ignore] [Mitigate] [Investigate]\n14:33:08 UTC │ 🟡 MED   │ BruteForce │ 172.16.0.100 → 10.0.0.1 │ 62%  │ [Ignore] [Mitigate] [Investigate]\n14:32:00 UTC │ 🟢 LOW   │ Probe      │ 203.0.113.45 → 10.0.0.1 │ 45%  │ [Ignore] [Mitigate] [Investigate]\n\n[Virtualized list - scroll for more alerts]  |  Query: SELECT * FROM V_ALERTS_24H ORDER BY INGESTION_TS DESC LIMIT 50",
+      "fontSize": 9, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 17, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_stack", "type": "text", "x": 30, "y": 600, "width": 200, "height": 20,
+      "text": "TECH STACK",
+      "fontSize": 13, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#1971c2", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 18, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_stack", "type": "rectangle", "x": 30, "y": 625, "width": 940, "height": 60,
+      "strokeColor": "#1971c2", "backgroundColor": "#d0ebff", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 19, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_stack_label", "type": "text", "x": 40, "y": 633, "width": 920, "height": 44,
+      "text": "Frontend: Next.js 14 + TypeScript + Tailwind (dark mode)  │  Charts: Recharts / Chart.js\nAPI Routes: GET /api/alerts, /api/alerts/stats, /api/alerts/distribution, /api/health, /api/alerts/{id}/action\nDB Connection: hdb (node-hdb) with TLS to SAP HANA Cloud  │  Polling: 30-120s interval  │  Cache: 10s in-memory\nUI Components: React + Headless UI  │  Animations: Framer Motion (pulse/blink for critical alerts)",
+      "fontSize": 10, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 20, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "label_ux", "type": "text", "x": 30, "y": 705, "width": 200, "height": 20,
+      "text": "UX PRIORITIES",
+      "fontSize": 13, "fontFamily": 1, "textAlign": "left",
+      "strokeColor": "#f08c00", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 21, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_ux", "type": "rectangle", "x": 30, "y": 730, "width": 940, "height": 80,
+      "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 22, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_ux_label", "type": "text", "x": 40, "y": 738, "width": 920, "height": 64,
+      "text": "✓ Dark mode by default (professional SOC look)  │  ✓ Micro-animations (pulse on CRITICAL alerts)  │  ✓ Refresh rate: 2-5 min (HANA optimization)\n✓ Mobile responsive (hero metrics stack on <768px)  │  ✓ Lazy loading gráficos  │  ✓ Virtualized list for timeline (10K+ alerts)\n✓ WCAG AA accessibility (ARIA labels)  │  ✓ Keyboard navigation  │  ✓ Loading skeletons while fetching  │  ✓ Error boundaries + retry logic",
+      "fontSize": 11, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 23, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    }
+  ],
+  "appState": { "gridSize": null, "viewBackgroundColor": "#ffffff" },
+  "files": {}
+}

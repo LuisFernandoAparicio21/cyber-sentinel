@@ -1,0 +1,37 @@
+name: SAP BTP Watchdog
+
+on:
+  # schedule disabled in the public copy (needs your own SAP BTP account)
+  # schedule:
+  #   - cron: '*/15 * * * *'
+  workflow_dispatch: # Permite ejecutarlo manualmente desde GitHub
+
+jobs:
+  auto-recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instalar Cloud Foundry CLI
+        run: |
+          wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+          echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+          sudo apt-get update
+          sudo apt-get install cf8-cli
+
+      - name: Autenticar en SAP BTP e Iniciar Apps
+        env:
+          CF_API: https://api.cf.us10-001.hana.ondemand.com
+          CF_USER: ${{ secrets.SAP_CF_USER }}
+          CF_PASSWORD: ${{ secrets.SAP_CF_PASSWORD }}
+        run: |
+          echo "Iniciando sesion en SAP BTP Cloud Foundry..."
+          cf login -a $CF_API -u "$CF_USER" -p "$CF_PASSWORD" -o "${{ vars.CF_ORG }}" -s dev
+          
+          # Intentar prender las apps (Si ya estan prendidas, CF simplemente las ignora sin error)
+          echo "Verificando soc-api..."
+          cf start soc-api || true
+          
+          echo "Verificando soc-dashboard..."
+          cf start soc-dashboard || true
+          
+          echo "Verificando soc-api-ingestor..."
+          cf start soc-api-ingestor || true

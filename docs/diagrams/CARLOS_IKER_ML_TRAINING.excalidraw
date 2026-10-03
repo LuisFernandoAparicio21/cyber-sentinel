@@ -1,0 +1,157 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "SAP SOC Project",
+  "elements": [
+    {
+      "id": "title", "type": "text", "x": 150, "y": 10, "width": 700, "height": 40,
+      "text": "CARLOS & IKER - ML Training Pipeline (RandomForest)",
+      "fontSize": 26, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 1, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_hana_src", "type": "rectangle", "x": 30, "y": 70, "width": 190, "height": 100,
+      "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid",
+      "strokeWidth": 3, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 2, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_hana_src_label", "type": "text", "x": 40, "y": 77, "width": 170, "height": 86,
+      "text": "SAP HANA Cloud\nSOC_LOGS\n\nSECURITY_DATA_FINAL\n1.2M+ registros\nIS_ATTACK IS NOT NULL",
+      "fontSize": 11, "fontFamily": 1, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 3, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_fetch", "type": "rectangle", "x": 290, "y": 70, "width": 190, "height": 100,
+      "strokeColor": "#1971c2", "backgroundColor": "#d0ebff", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 4, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_fetch_label", "type": "text", "x": 300, "y": 77, "width": 170, "height": 86,
+      "text": "fetch_attacks_ml_chunked()\n\nLIMIT/OFFSET chunks\nde 50,000 filas\n\nMAX_ROWS = 500,000\n~5 segundos",
+      "fontSize": 11, "fontFamily": 3, "textAlign": "center",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 5, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_preprocess", "type": "rectangle", "x": 550, "y": 70, "width": 220, "height": 130,
+      "strokeColor": "#9c36b5", "backgroundColor": "#eebefa", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 6, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_preprocess_label", "type": "text", "x": 560, "y": 77, "width": 200, "height": 116,
+      "text": "preprocess_attacks_ml()\n\nPROTOCOL: TCP->6 UDP->17 ICMP->1\nFill nulls con mediana\nCap outliers p99.9\nDtype map (int8, float64)\n\n14 NUMERIC_FEATURES\nTarget: IS_ATTACK",
+      "fontSize": 11, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 7, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_train", "type": "rectangle", "x": 290, "y": 230, "width": 190, "height": 140,
+      "strokeColor": "#2f9e44", "backgroundColor": "#b2f2bb", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 8, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_train_label", "type": "text", "x": 300, "y": 237, "width": 170, "height": 126,
+      "text": "train_baseline_model()\n\nTrain/Test 80/20 stratified\nStandardScaler (fit train)\n\nRandomForestClassifier(\n  n_estimators=50\n  max_depth=12\n  min_samples_leaf=20\n  n_jobs=2\n)\n\n~14 segundos",
+      "fontSize": 10, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 9, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_metrics", "type": "rectangle", "x": 550, "y": 230, "width": 220, "height": 140,
+      "strokeColor": "#2f9e44", "backgroundColor": "#d3f9d8", "fillStyle": "solid",
+      "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 10, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_metrics_label", "type": "text", "x": 560, "y": 237, "width": 200, "height": 126,
+      "text": "RESULTADOS FINALES\n(CF Task #17 ml_persist_v3)\n\nAccuracy:     97.58%\nPrecision(1): 0.98\nRecall(1):    0.83\nF1(1):        0.90\nF1(0):        0.99\nMacro F1:     0.94\n\nTrain: 400,000 rows\nTest:  100,000 rows",
+      "fontSize": 11, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 11, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_persist", "type": "rectangle", "x": 30, "y": 230, "width": 190, "height": 140,
+      "strokeColor": "#f08c00", "backgroundColor": "#ffec99", "fillStyle": "solid",
+      "strokeWidth": 3, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 12, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_persist_label", "type": "text", "x": 40, "y": 237, "width": 170, "height": 126,
+      "text": "persist_model_to_hana()\n\nML_ARTIFACTS table\n(BLOB storage)\n\nbaseml_model  2.2 MB\nbaseml_scaler 1.3 KB\nbaseml_metadata JSON\n\nUPSERT WITH PRIMARY KEY\n→ idempotente",
+      "fontSize": 10, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 13, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "arrow_hana_fetch", "type": "arrow", "x": 220, "y": 120, "width": 70, "height": 0,
+      "points": [[0, 0], [70, 0]],
+      "strokeColor": "#f08c00", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 14, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "arrow_fetch_pre", "type": "arrow", "x": 480, "y": 120, "width": 70, "height": 0,
+      "points": [[0, 0], [70, 0]],
+      "strokeColor": "#1971c2", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 15, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "arrow_pre_train", "type": "arrow", "x": 660, "y": 200, "width": -280, "height": 80,
+      "points": [[0, 0], [-280, 80]],
+      "strokeColor": "#9c36b5", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 16, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "arrow_train_metrics", "type": "arrow", "x": 480, "y": 300, "width": 70, "height": 0,
+      "points": [[0, 0], [70, 0]],
+      "strokeColor": "#2f9e44", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 17, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "arrow_train_persist", "type": "arrow", "x": 290, "y": 300, "width": -70, "height": 0,
+      "points": [[0, 0], [-70, 0]],
+      "strokeColor": "#f08c00", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 2, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 18, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+
+    {
+      "id": "box_cf_env", "type": "rectangle", "x": 30, "y": 395, "width": 740, "height": 55,
+      "strokeColor": "#868e96", "backgroundColor": "#f8f9fa", "fillStyle": "solid",
+      "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 19, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    },
+    {
+      "id": "box_cf_env_label", "type": "text", "x": 40, "y": 403, "width": 720, "height": 40,
+      "text": "ENTORNO: SAP BTP Cloud Foundry  |  cf run-task soc-api-ingestor --command 'python baseml_model.py' -m 1G -k 2G\nPython 3.11 (cflinuxfs4)  |  scikit-learn>=1.3.0  |  joblib>=1.3.0  |  hdbcli (TLS port 443)",
+      "fontSize": 11, "fontFamily": 3, "textAlign": "left",
+      "strokeColor": "#1e1e1e", "backgroundColor": "transparent",
+      "fillStyle": "solid", "strokeWidth": 1, "roughness": 1, "opacity": 100,
+      "angle": 0, "seed": 20, "version": 1, "isDeleted": false, "boundElements": null, "link": null, "locked": false
+    }
+  ],
+  "appState": { "gridSize": null, "viewBackgroundColor": "#ffffff" },
+  "files": {}
+}
