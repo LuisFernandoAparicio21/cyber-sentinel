@@ -12,6 +12,7 @@
 ![SAP HANA Cloud](https://img.shields.io/badge/SAP_HANA-Cloud-0FAAFF?style=for-the-badge&logo=sap&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Tests](https://github.com/LuisFernandoAparicio21/cyber-sentinel/actions/workflows/tests.yml/badge.svg)
 
 <sub>Team project · UPAEP, Innovación Tecnológica · SAP mentors · Jan–Apr 2026</sub>
 
@@ -39,6 +40,7 @@ SAP provided an API that streams alerts from LLM workloads (request telemetry su
 |---|---|
 | Ingestion | **Python · Flask** service on **SAP BTP Cloud Foundry** (`soc-api-ingestor`), polls the SAP API every 2 minutes |
 | Storage | **SAP HANA Cloud** — schema `SOC_LOGS`: 6 tables with foreign keys created by the ingestor, plus the dashboard view |
+| Reliability | Run control per window (`INGEST_RUNS`), quarantine table (`INGEST_QUARANTINE`), transactional bulk UPSERT, schema-drift counters, freshness in `/health` |
 | Detection | Rule-based classifier with a hook for the ML model · baseline **RandomForest** (scikit-learn) |
 | Alerts in | `/api/webhook` and `/api/replenish`, protected by an API key (constant-time check) |
 | Alerts out | `notifier.py` pushes security alerts through the webhook |
@@ -161,10 +163,39 @@ The workflows in `.github/workflows/` restart stopped apps and ping them. Their 
 
 ---
 
+## Reliability (v5)
+
+The loader is **idempotent and recoverable**: running it twice never duplicates data, and a failure never loses a window.
+
+| Problem | How v5 handles it |
+|---|---|
+| A window could be marked done even if HANA failed | `INGEST_RUNS` stores one row per API window; it becomes `LOADED` **only after the commit**. `FAILED` and `PARTIAL` windows are downloaded again while the API still serves them |
+| The registry lived on the container disk (wiped on every restart) | The watermark lives in HANA, so restarts and restages keep it |
+| Pages that failed were never recovered | They are saved in `INGEST_RUNS.FAILED_PAGES` and the window stays `PARTIAL` until a full download succeeds |
+| Row-by-row inserts with autocommit could leave half-loaded windows | One transaction per batch with `executemany`; if the database rejects it, it rolls back and retries event by event |
+| One bad row could block a whole window | Bad rows go to `INGEST_QUARANTINE` (dead letter table) with the raw payload and the error |
+| Redelivered webhook events created duplicates | Events without `_id` get a deterministic id from the SHA-256 of their canonical JSON; `EVENT_HASH` is now a content hash |
+| No ingestion time | New `INGESTED_AT` column, all timestamps normalized to UTC |
+| Source changes were invisible | Values outside the catalogs are counted per batch and flagged as `SCHEMA DRIFT` above 5% |
+| `/health` said "ok" while ingestion was failing | `/health` reports `last_success_at`, `lag_seconds` and `stale` |
+| Bootstrap hid permission errors | DDL ignores only "already exists" errors; everything else is raised |
+| Local Parquet copies filled the disk | Only the newest `RAW_RETENTION_FILES` copies are kept |
+
+## Tests
+
+```bash
+pip install pandas flask requests pytest
+python -m pytest tests -q        # 12 tests, no network and no HANA needed
+```
+
+They cover idempotent ids, UTC normalization, schema-drift counting, the one-commit load, quarantine, the row-by-row fallback and the run-control rules (`LOADED` only after commit, `PARTIAL`, `FAILED`, skip of loaded windows).
+
+---
+
 ## Design Decisions
 
 - **Paged download with backoff** — each page of the SAP API is retried after 10, 30 and 60 s; pages that still fail are logged for audit instead of stopping the whole cycle.
-- **Download registry per time window** — a window that was already downloaded is skipped, so restarts do not duplicate events.
+- **Watermark in the database, not on disk** — `INGEST_RUNS` decides what is already loaded; checked right after page 1, before downloading the rest.
 - **Field normalizers** — log type, source, environment, LLM status and IDs are normalized before insert, so the dashboard queries one consistent shape.
 - **Schema bootstrap on startup** — the service creates its own tables if they do not exist, so a fresh HANA instance works with no manual SQL.
 - **Rules first, ML hook second** — the pipeline classified real data from day one while the team's ML model was still training.
